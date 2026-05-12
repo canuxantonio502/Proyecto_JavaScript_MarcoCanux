@@ -10,6 +10,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 
+<div class="login-modal" id="loginModal">
+    <div class="login-box">
+      <span class="close-btn" id="closeModal">
+        &times;
+      </span>
+      <h2>Administrador</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" id="email" placeholder="Ingrese su email" required>
+        </div>
+        <div class="input-group">
+          <label>Contraseña</label>
+          <input type="password" id="password" placeholder="Ingrese su contraseña" required>
+        </div>
+        <button type="submit" class="submit-btn">
+          Iniciar sesión
+        </button>
+        <p id="message"></p>
+      </form>
+    </div>
+  </div>
+
 <body>
     <header class="header">
         <div class="logIMG">
@@ -25,7 +48,7 @@
             </div>
             <!--<img id="logoName" src="./css/assets/logoName.png" alt="Campus Parking">-->
         </div>
-        <button id="login-bt">LOGIN</button>
+        <button id="login-btn">LOGIN</button>
     </header>
 
     <main class="main">

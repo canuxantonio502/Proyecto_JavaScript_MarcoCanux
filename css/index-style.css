@@ -79,7 +79,7 @@ body {
 
 #campusParking {
     display: flex;
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 #text {
@@ -298,11 +298,9 @@ footer {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.6);
-
     display: none;
     align-items: center;
     justify-content: center;
-
     z-index: 200;
 }
 
@@ -316,17 +314,14 @@ footer {
 }
 
 @keyframes modalShow {
-
     from {
         transform: scale(0.8);
         opacity: 0;
     }
-
     to {
         transform: scale(1);
         opacity: 1;
     }
-
 }
 
 .login-box h2 {

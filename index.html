@@ -1,29 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" href="./css/assets/logoIMG.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
+
 <body>
     <header class="header">
         <div class="logIMG">
             <img id="logoImg" src="./css/assets/logoIMG.png" alt="Logo Campus Parking"></i>
         </div>
         <div class="logName">
-            <img id="logoName" src="./css/assets/logoName.png" alt="Campus Parking">
+            <div id="campusParking">
+                <p>Campus</p>
+                <p style="font-weight: bold;">Parking</p>
+            </div>
+            <div id="text">
+                <p>Gestión espacial para tu parqueo</p>
+            </div>
+            <!--<img id="logoName" src="./css/assets/logoName.png" alt="Campus Parking">-->
         </div>
-            <button id="login-bt">LOGIN</button>
+        <button id="login-bt">LOGIN</button>
     </header>
-    
+
     <main class="main">
-        <div>
-            <p>hola</p>
-        </div>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Control inteligente de parqueo Campus</h1>
+                <p>Gestion de entradas, salidas y espacios disponibles en tiempo real de manera rápida, moderna y
+                    segura.
+                </p>
+                <div class="hero-buttons">
+                    <button class="primary">
+                        Ver disponibilidad
+                    </button>
+                    <button class="secondary">
+                        Conocer más
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="parking-card">
+                    <h2>Estado del parqueo</h2>
+                    <div class="spaces">
+                        <div class="space free">A1</div>
+                        <div class="space occupied">A2</div>
+                        <div class="space free">A3</div>
+
+                        <div class="space occupied">B1</div>
+                        <div class="space free">B2</div>
+                        <div class="space occupied">B3</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2 class="section-title">Funcionalidades</h2>
+            <div class="cards">
+                <div class="card">
+                    <i class="fa-solid fa-car"></i>
+                    <h3>Registro Vehicular</h3>
+                    <p>Control rápido de ingresos y salidas.</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-square-parking"></i>
+                    <h3>Espacios Disponibles</h3>
+                    <p>Consulta los espacios libres en tiempo real.</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-chart-column"></i>
+                    <h3>Reportes</h3>
+                    <p>Estadísticas y registros organizados.</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Seguridad</h3>
+                    <p>Administración segura del parqueo.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="stats-container">
+                <div class="stat-box">
+                    <h2>124</h2>
+                    <p>Vehículos hoy</p>
+                </div>
+                <div class="stat-box">
+                    <h2>38</h2>
+                    <p>Espacios libres</p>
+                </div>
+                <div class="stat-box">
+                    <h2>12</h2>
+                    <p>Ingresos recientes</p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <script src="main.js"></script>
+    <footer>
+        © 2026 ParkingControl | Sistema de gestión de parqueo
+    </footer>
 </body>
+
 </html>

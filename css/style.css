@@ -1,0 +1,291 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --back-color: #020710;
+    --text-color: #99BABB;
+    --secundary-color: #1A2C37;
+    --error-color: #D0060D;
+    --occuped-color: #A00005;
+    --free-color: #3E5E68;
+    --vip-color: #D0060D;
+    --icons-color: #2C4550;
+}
+
+body {
+    background-color: var(--back-color);
+    color: var(--text-color);
+}
+
+.header {
+    margin: 5px;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: var(--text-color);
+    border-radius: 10px 10px 0 0;
+}
+
+.main {
+    margin: 5px;
+    margin-top: 0;
+    border-radius: 0 0 10px 10px;
+    border: 2px solid var(--text-color);
+    /* Importante: permite posicionar el fondo relativo a este contenedor */
+    position: relative; 
+    overflow: hidden; 
+  }
+  
+  .main::before {
+    content: "";
+    background-image: url(./assets/logoIMG.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; 
+    /* Ajusta la opacidad aquí */
+    opacity: 0.3; 
+    /* Posicionamiento para que llene todo el contenedor */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Lo manda detrás del contenido */
+  }
+
+/*.main {
+    margin: 5px;
+    margin-top: 0;
+    border-radius: 0 0 10px 10px;
+    height:86vh;
+    border: 2px solid var(--text-color);
+    background-image: url(./assets/logoIMG.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}*/
+
+.logName {
+    color: var(--secundary-color);
+    align-items:flex;
+
+}
+
+#campusParking {
+    display: flex;
+    font-size: 4rem;
+}
+
+#text {
+    font-size: 2rem;
+}
+
+#logoImg, #logoName{
+    height: 80px;
+}
+
+#logoImg:hover,
+.logName:hover, 
+#login-bt {
+    transform: scale(1.05);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#login-bt {
+    padding: 3px;
+    border: none;
+    background-color: var(--free-color);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+#login-bt:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+    transform: translateY(-2px);
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.hero {
+    min-height: 86vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 120px 8% 50px;
+    gap: 50px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    color: #475569;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.hero-buttons button {
+    padding: 14px 24px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.primary {
+    background: var(--free-color);
+    color: white;
+}
+
+.primary:hover {
+    background: var(--text-color);
+}
+
+.secondary {
+    background: white;
+    border: 2px solid #cbd5e1 !important;
+}
+
+.secondary:hover {
+    background: #e2e8f0;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.parking-card {
+    width: 400px;
+    background: white;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.parking-card h2 {
+    margin-bottom: 20px;
+}
+
+.spaces {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.space {
+    height: 80px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+}
+
+.free {
+    background: var(--free-color);
+}
+
+.occupied {
+    background: var(--occuped-color);
+}
+
+/* ================= FEATURES ================= */
+
+.features {
+    padding: 80px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.2rem;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card i {
+    font-size: 2rem;
+    color: var(--icons-color);
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #64748b;
+    line-height: 1.5;
+}
+
+/* ================= STATS ================= */
+
+.stats {
+    padding: 60px 8%;
+    background: #0f172a;
+    color: white;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    text-align: center;
+}
+
+.stat-box h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    padding: 25px;
+    text-align: center;
+    background: #020617;
+    color: #94a3b8;
+}

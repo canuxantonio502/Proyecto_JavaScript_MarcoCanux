@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --back-color: #020710;
+    --text-color: #99BABB;
+    --secundary-color: #1A2C37;
+    --error-color: #D0060D;
+    --occuped-color: #A00005;
+    --free-color: #3E5E68;
+    --vip-color: #D0060D;
+    --icons-color: #2C4550;
+}
+
+body {
+    background-color: var(--back-color);
+    color: var(--text-color);
+}
+
+.header {
+    margin: 5px;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: var(--text-color);
+    border-radius: 10px 10px 0 0;
+}
+
+.main {
+    margin: 5px;
+    margin-top: 0;
+    border-radius: 0 0 10px 10px;
+    background-image: url(./css/assets/logoIMG.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.2;
+    height: 86vh;
+    border: 2px solid var(--text-color);
+}
+
+#logoImg, #logoName{
+    height: 80px;
+}
+
+#logoImg:hover,
+#logoName:hover, 
+#login-bt {
+    transform: scale(1.05);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#login-bt {
+    padding: 3px;
+    border: none;
+    background-color: var(--free-color);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+#login-bt:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+    cursor: pointer;
+    opacity: 0.8;
+}

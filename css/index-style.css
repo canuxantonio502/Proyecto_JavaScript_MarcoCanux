@@ -19,6 +19,7 @@
 body {
     background-color: var(--back-color);
     color: var(--text-color);
+
 }
 
 .header {
@@ -79,7 +80,7 @@ body {
 
 #campusParking {
     display: flex;
-    font-size: 3rem;
+    font-size: 4rem;
 }
 
 #text {
@@ -88,7 +89,7 @@ body {
 
 #logoImg,
 #logoName {
-    height: 80px;
+    height: 100px;
 }
 
 #logoImg:hover,
@@ -102,18 +103,20 @@ body {
 #login-btn {
     padding: 3px;
     border: none;
-    background-color: var(--free-color);
+    background: linear-gradient(145deg,#2C4550,#3E5E68);
     color: white;
     padding: 10px 15px;
     border-radius: 8px;
+    padding: 20px;
 }
 
-#login-btn:hover {
-    transform: scale(1.05);
-    transition: 0.3s;
-    transform: translateY(-2px);
-    cursor: pointer;
-    opacity: 0.8;
+#login-btn::before {
+    left: -120%;
+    transition: .7s;
+}
+
+#login-btn:hover::before {
+    left: 130%
 }
 
 .hero {

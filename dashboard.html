@@ -3,12 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - campusParking</title>
+    <title>Dashboard - CampusParking</title>
     <link rel="stylesheet" href="./css/dashboard-style.css">
     <link rel="icon" href="./css/assets/logoIMG.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 <body>
-    <p>Welcome to the CampusParking Dashboard</p>
+    <aside class="sidebar">
+      <div class="logo">
+        <img id="logoImg" src="./css/assets/logoIMG.png" alt="Logo CampusParking">
+        <h2>ParkingControl</h2>
+      </div>
+      <nav class="menu">
+        <a href="#">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="#">
+          <i class="fa-solid fa-car"></i>
+          <span>Vehículos</span>
+        </a>
+        <a href="#">
+          <i class="fa-solid fa-square-parking"></i>
+          <span>Espacios</span>
+        </a>
+        <a href="#">
+          <i class="fa-solid fa-chart-column"></i>
+          <span>Reportes</span>
+        </a>
+        <a href="#">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span>Salir</span>
+        </a>
+      </nav>
+    </aside>
+  
+    <main>
+      <div class="topbar">
+        <h1>Dashboard</h1>
+        <div class="admin">
+          Administrador
+        </div>
+      </div>
+
+      <section class="cards">
+        <div class="card">
+          <h2>124</h2>
+          <p>Vehículos registrados hoy</p>
+        </div>
+        <div class="card">
+          <h2>38</h2>
+          <p>Espacios disponibles</p>
+        </div>
+        <div class="card">
+          <h2>12</h2>
+          <p>Ingresos recientes</p>
+        </div>
+        <div class="card">
+          <h2>6</h2>
+          <p>Espacios ocupados</p>
+        </div>
+      </section>
+
+      <section class="parking-section">
+        <h2>Estado del parqueo</h2>
+        <div class="spaces">
+          <div class="space free">A1</div>
+          <div class="space occupied">A2</div>
+          <div class="space free">A3</div>
+          <div class="space occupied">A4</div>
+          <div class="space free">A5</div>
+  
+          <div class="space occupied">B1</div>
+          <div class="space free">B2</div>
+          <div class="space free">B3</div>
+          <div class="space occupied">B4</div>
+          <div class="space free">B5</div>
+        </div>
+      </section>
+
+      <section class="table-section">
+        <div class="table-header">
+          <h2>Vehículos recientes</h2>
+          <button class="add-btn">
+            + Registrar vehículo
+          </button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Placa</th>
+              <th>Vehículo</th>
+              <th>Hora entrada</th>
+              <th>Espacio</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>P123ABC</td>
+              <td>Toyota Corolla</td>
+              <td>08:30 AM</td>
+              <td>A2</td>
+              <td>Dentro</td>
+            </tr>
+            <tr>
+              <td>P456XYZ</td>
+              <td>Honda Civic</td>
+              <td>09:10 AM</td>
+              <td>B4</td>
+              <td>Dentro</td>
+            </tr>
+            <tr>
+              <td>P789LMN</td>
+              <td>Hyundai Elantra</td>
+              <td>10:00 AM</td>
+              <td>A4</td>
+              <td>Dentro</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
 </body>
 </html>

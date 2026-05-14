@@ -7,12 +7,9 @@
   <title>Dashboard - CampusParking</title>
   <link rel="stylesheet" href="./css/dashboard-style.css">
   <link rel="icon" href="./css/assets/logoIMG.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
@@ -45,12 +42,12 @@
     </nav>
   </aside>
 
-  <main>
+  <main class="visible">
     <div class="topbar">
-      <h1>Dashboard</h1>
-      <div class="admin">
+      <h1 class="title"">Dashboard</h1>
+      <button class="admin">
         Administrador
-      </div>
+      </button>
     </div>
 
     <section class="cards">
@@ -87,6 +84,7 @@
             <th>Fecha</th>
             <th>Hora entrada</th>
             <th>Slot</th>
+            <th>Acción</th>
           </tr>
         </thead>
         <tbody>
@@ -141,7 +139,9 @@
   <!-- ================= Info del Slot (Modal) ================= -->
   <div class="slot-modal" id="slotModal">
     <div class="slot-box">
-      <span class="close-modal" id="closeSlotModal">&times;</span>
+      <span class="close-modal" id="closeSlotModal">
+        &times;
+      </span>
       <h2>Información del vehículo</h2>
       <div id="slotInfo"></div>
     </div>

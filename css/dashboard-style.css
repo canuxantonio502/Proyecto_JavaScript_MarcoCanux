@@ -18,7 +18,16 @@
 
 body {
     display: flex;
-    background: var(--text-color);
+}
+
+.visible {
+    background: linear-gradient(-90deg, var(--text-color), var(--secundary-color));
+}
+
+.title:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: 0.3s;
 }
 
 .sidebar {
@@ -93,6 +102,14 @@ main {
     padding: 12px 20px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border: none;
+}
+
+.admin:hover {
+    cursor: pointer;
+    background-color: var(--free-color);
+    transform: scale(1.05);
+    transition: 0.3s;
 }
 
 .cards {
@@ -106,7 +123,13 @@ main {
     background: var(--icons-color);
     padding: 25px;
     border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: 0.3s;
 }
 
 .card h2 {
@@ -172,7 +195,7 @@ main {
     color: var(--text-color);
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
 }
 
 .table-header {
@@ -330,6 +353,10 @@ tr:nth-child(even) {
     margin-top: 15px;
     text-align: center;
     font-weight: bold;
+}
+
+.parking-section {
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
 }
 
 .parking-category {

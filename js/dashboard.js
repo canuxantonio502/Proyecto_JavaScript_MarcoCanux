@@ -9,13 +9,14 @@ const motoSlotsContainer = document.getElementById("motoSlots")
 const slotModal = document.getElementById("slotModal")
 const closeSlotModal = document.getElementById("closeSlotModal")
 const slotInfo = document.getElementById("slotInfo")
+const cards = document.getElementsByClassName("cards")
 
 // Almacenamos en LocalStorage
 let vehicles = JSON.parse(localStorage.getItem("vehicles")) || []
 let history = JSON.parse(
     localStorage.getItem("history")
 ) || []
-let editingPlate = null
+let editPlate = null
 
 addBtn.addEventListener("click", () => {
     vehicleModal.style.display = "flex"
@@ -98,7 +99,7 @@ function editVehicle(plate) {
 
     if (!vehicle) return
 
-    editingPlate = plate
+    editPlate = plate
     vehicleModal.style.display = "flex"
     slotModal.style.display = "none"
 
@@ -126,9 +127,7 @@ function vehicleExit(plate) {
     entryDate.setHours(hours)
     entryDate.setMinutes(minutes)
     const diffMs = exitDate - entryDate
-    const diffHours = Math.ceil(
-        diffMs / (1000 * 60 * 60)
-    )
+    const diffHours = Math.ceil(diffMs / (1000 * 60 * 60))
 
     let rate = 0
     if (vehicle.tipo === "Carro") {
@@ -170,9 +169,9 @@ vehicleForm.addEventListener("submit", (e) => {
     }
 
     const existPlate = vehicles.some(vehicle => {
-        if (editingPlate) {
+        if (editPlate) {
             return vehicle.placa === placa &&
-                vehicle.placa !== editingPlate
+                vehicle.placa !== editPlate
         }
         return vehicle.placa === placa
     })
@@ -206,16 +205,16 @@ vehicleForm.addEventListener("submit", (e) => {
         estado: "Dentro"
     }
 
-    if (editingPlate) {
+    if (editPlate) {
         const index = vehicles.findIndex(
-            vehicle => vehicle.placa === editingPlate
+            vehicle => vehicle.placa === editPlate
         )
         vehicles[index] = {
             ...vehicles[index],
             placa,
             tipo
         }
-        editingPlate = null
+        editPlate = null
     } else {
         vehicles.push(vehicle)
     }
@@ -224,13 +223,13 @@ vehicleForm.addEventListener("submit", (e) => {
     renderVehicles()
     vehicleMessage.style.color = "green"
     vehicleMessage.textContent =
-        editingPlate
+        editPlate
             ? "Vehículo actualizado"
             : "Vehículo registrado"
     vehicleForm.reset()
     document.querySelector(".save-btn").textContent =
         "Registrar"
-    editingPlate = null
+    editPlate = null
     setTimeout(() => {
         vehicleModal.style.display = "none"
         vehicleMessage.textContent = ""

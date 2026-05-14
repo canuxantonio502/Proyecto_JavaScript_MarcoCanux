@@ -308,6 +308,64 @@ tr:nth-child(even) {
     font-weight: bold;
 }
 
-#deleteBt {
+/* ================= SLOT CATEGORY ================= */
 
+.parking-category {
+    margin-bottom: 40px;
+}
+
+.parking-category h3 {
+    margin-bottom: 20px;
+}
+
+.slot-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.slot-box {
+    width: 400px;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    animation: modalShow 0.3s ease;
+}
+
+.slot-box h2 {
+    margin-bottom: 20px;
+    color: #020710;
+}
+
+.slot-info p {
+    margin-bottom: 12px;
+    color: #020710;
+}
+
+.slot-actions {
+    margin-top: 25px;
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.edit-btn {
+    background: #2563eb;
+}
+
+.delete-btn {
+    background: #dc2626;
 }

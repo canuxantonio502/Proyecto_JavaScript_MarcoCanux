@@ -74,18 +74,14 @@
 
     <section class="parking-section">
       <h2>Estado del parqueo</h2>
-      <div class="spaces">
-        <div class="space free">A1</div>
-        <div class="space occupied">A2</div>
-        <div class="space free">A3</div>
-        <div class="space occupied">A4</div>
-        <div class="space free">A5</div>
+      <div class="parking-category">
+        <h3>Carros</h3>
+        <div class="spaces" id="carSlots"></div>
+      </div>
 
-        <div class="space occupied">B1</div>
-        <div class="space free">B2</div>
-        <div class="space free">B3</div>
-        <div class="space occupied">B4</div>
-        <div class="space free">B5</div>
+      <div class="parking-category">
+        <h3>Motos</h3>
+        <div class="spaces" id="motoSlots"></div>
       </div>
     </section>
 
@@ -138,6 +134,15 @@
         </button>
         <p id="vehicleMessage"></p>
       </form>
+    </div>
+  </div>
+
+  <!-- ================= Info del Slot (Modal) ================= -->
+  <div class="slot-modal" id="slotModal">
+    <div class="slot-box">
+      <span class="close-modal" id="closeSlotModal">&times;</span>
+      <h2>Información del vehículo</h2>
+      <div id="slotInfo"></div>
     </div>
   </div>
 

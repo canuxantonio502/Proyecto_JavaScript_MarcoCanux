@@ -12,6 +12,7 @@ const slotInfo = document.getElementById("slotInfo")
 
 // Almacenamos en LocalStorage
 let vehicles = JSON.parse(localStorage.getItem("vehicles")) || []
+let editingPlate = null
 
 addBtn.addEventListener("click", () => {
     vehicleModal.style.display = "flex"
@@ -42,11 +43,11 @@ function generateSlot(type) {
 }
 
 // Validamos la placa
-function validatePlate(plate, type){
+function validatePlate(plate, type) {
     let regex
-    if(type === "Carro"){
+    if (type === "Carro") {
         regex = /^P[0-9]{3}[A-Z]{3}$/
-    }else if(type === "Moto"){
+    } else if (type === "Moto") {
         regex = /^M[0-9]{3}[A-Z]{3}$/
     }
     return regex.test(plate)
@@ -87,20 +88,42 @@ function deleteVehicle(plate) {
     slotModal.style.display = "none"
 }
 
+function editVehicle(plate) {
+    const vehicle = vehicles.find(
+        vehicle => vehicle.placa === plate
+    )
+
+    if (!vehicle) return
+
+    editingPlate = plate
+    vehicleModal.style.display = "flex"
+    slotModal.style.display = "none"
+
+    document.getElementById("placa").value = vehicle.placa
+    document.getElementById("tipo").value = vehicle.tipo
+    document.querySelector(".save-btn").textContent =
+        "Guardar cambios"
+}
+
 // ================= REGISTRAR =================
 vehicleForm.addEventListener("submit", (e) => {
     e.preventDefault()
     const placa = document.getElementById("placa").value.toUpperCase()
     const tipo = document.getElementById("tipo").value
-    if(!validatePlate(placa, tipo)) {
+    if (!validatePlate(placa, tipo)) {
         vehicleMessage.style.color = "red"
         vehicleMessage.textContent = "Formato inválido"
         return
     }
 
-    const existPlate = vehicles.some(
-        vehicle => vehicle.placa === placa
-    )
+    const existPlate = vehicles.some(vehicle => {
+        if (editingPlate) {
+            return vehicle.placa === placa &&
+                vehicle.placa !== editingPlate
+        }
+        return vehicle.placa === placa
+    })
+
     if (existPlate) {
         vehicleMessage.style.color = "red"
         vehicleMessage.textContent = "La placa ya existe"
@@ -130,12 +153,31 @@ vehicleForm.addEventListener("submit", (e) => {
         estado: "Dentro"
     }
 
-    vehicles.push(vehicle)
+    if (editingPlate) {
+        const index = vehicles.findIndex(
+            vehicle => vehicle.placa === editingPlate
+        )
+        vehicles[index] = {
+            ...vehicles[index],
+            placa,
+            tipo
+        }
+        editingPlate = null
+    } else {
+        vehicles.push(vehicle)
+    }
+
     saveVehicles()
     renderVehicles()
     vehicleMessage.style.color = "green"
-    vehicleMessage.textContent = "Vehículo registrado"
+    vehicleMessage.textContent =
+        editingPlate
+            ? "Vehículo actualizado"
+            : "Vehículo registrado"
     vehicleForm.reset()
+    document.querySelector(".save-btn").textContent =
+        "Registrar"
+    editingPlate = null
     setTimeout(() => {
         vehicleModal.style.display = "none"
         vehicleMessage.textContent = ""
@@ -206,6 +248,9 @@ function showVehicleInfo(vehicle) {
             <p><strong>Hora entrada:</strong> ${vehicle.horaEntrada}</p>
             <p><strong>Slot:</strong> ${vehicle.slot}</p>
             <div class="slot-actions">
+                <button class="edit-btn" onclick="editVehicle('${vehicle.placa}')">
+                    Editar
+                </button>
                 <button class="delete-btn" onclick="deleteVehicle('${vehicle.placa}')">
                     Eliminar
                 </button>

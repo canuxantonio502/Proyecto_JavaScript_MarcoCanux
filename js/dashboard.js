@@ -12,6 +12,9 @@ const slotInfo = document.getElementById("slotInfo")
 
 // Almacenamos en LocalStorage
 let vehicles = JSON.parse(localStorage.getItem("vehicles")) || []
+let history = JSON.parse(
+    localStorage.getItem("history")
+) || []
 let editingPlate = null
 
 addBtn.addEventListener("click", () => {
@@ -103,6 +106,56 @@ function editVehicle(plate) {
     document.getElementById("tipo").value = vehicle.tipo
     document.querySelector(".save-btn").textContent =
         "Guardar cambios"
+}
+
+// Registramos la salida del vehículo
+function vehicleExit(plate) {
+    const vehicle = vehicles.find(
+        vehicle => vehicle.placa === plate
+    )
+    if (!vehicle) return
+
+    let history = JSON.parse(
+        localStorage.getItem("history")
+    ) || []
+
+    const exitDate = new Date()
+    const [hours, minutes] =
+        vehicle.horaEntrada.split(":")
+    const entryDate = new Date()
+    entryDate.setHours(hours)
+    entryDate.setMinutes(minutes)
+    const diffMs = exitDate - entryDate
+    const diffHours = Math.ceil(
+        diffMs / (1000 * 60 * 60)
+    )
+
+    let rate = 0
+    if (vehicle.tipo === "Carro") {
+        rate = 10
+    } else {
+        rate = 5
+    }
+
+    const total = diffHours * rate
+
+    vehicle.horaSalida = exitDate.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit"
+    })
+
+    vehicle.tiempoTotal = `${diffHours} hora(s)`
+    vehicle.totalPagado = `Q${total}`
+    vehicle.estado = "Finalizado"
+    alert(`Vehículo: ${vehicle.placa}
+Tiempo total: ${vehicle.tiempoTotal}
+Total: ${vehicle.totalPagado}`)
+    vehicles = vehicles.filter(
+        v => v.placa !== plate
+    )
+    saveVehicles()
+    renderVehicles()
+    slotModal.style.display = "none"
 }
 
 // ================= REGISTRAR =================
@@ -250,6 +303,9 @@ function showVehicleInfo(vehicle) {
             <div class="slot-actions">
                 <button class="edit-btn" onclick="editVehicle('${vehicle.placa}')">
                     Editar
+                </button>
+                <button class="edit-btn" onclick="vehicleExit('${vehicle.placa}')">
+                    Salida
                 </button>
                 <button class="delete-btn" onclick="deleteVehicle('${vehicle.placa}')">
                     Eliminar

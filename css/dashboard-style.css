@@ -37,6 +37,12 @@ body {
     margin-bottom: 50px;
 }
 
+.logo:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
 .logo img {
     height: 50px;
 }
@@ -143,6 +149,12 @@ main {
     font-size: 1.1rem;
 }
 
+.space:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
 .free {
     background: var(--free-color);
 }
@@ -224,7 +236,6 @@ tr:nth-child(even) {
     }
 }
 
-
 /* ================= MODAL VEHICLE ================= */
 .vehicle-modal {
     position: fixed;
@@ -285,8 +296,7 @@ tr:nth-child(even) {
     border-color: var(--icons-color);
 }
 
-.save-btn,
-#deleteBt {
+.save-btn {
     width: 100%;
     padding: 14px;
     border: none;
@@ -297,9 +307,23 @@ tr:nth-child(even) {
     transition: 0.3s;
 }
 
-.save-btn:hover,
-#deleteBt:hover {
+#deleteBt {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: var(--occuped-color);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.save-btn:hover {
     background: var(--icons-color);
+}
+
+#deleteBt:hover {
+    background: var(--error-color);
 }
 
 #vehicleMessage {

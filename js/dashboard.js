@@ -11,6 +11,11 @@ const closeSlotModal = document.getElementById("closeSlotModal")
 const slotInfo = document.getElementById("slotInfo")
 const cards = document.getElementsByClassName("cards")
 
+const carCount = document.getElementById("carCount")
+const freeCount = document.getElementById("freeCount")
+const recentCount = document.getElementById("recentCount")
+const occupiedCount = document.getElementById("occupiedCount")
+
 // Almacenamos en LocalStorage
 let vehicles = JSON.parse(localStorage.getItem("vehicles")) || []
 let history = JSON.parse(
@@ -59,6 +64,9 @@ function validatePlate(plate, type) {
 
 // Renderizamos el vehículo en la tabla
 function renderVehicles() {
+    let total = 0
+    let freeS = 20
+    let recentE = 0
     tableBody.innerHTML = ""
     vehicles.forEach(vehicle => {
         tableBody.innerHTML += `
@@ -75,6 +83,13 @@ function renderVehicles() {
                 </td>
             </tr>
         `
+        total += 1
+        freeS -= 1
+        recentE += 1
+        carCount.innerHTML = total
+        freeCount.innerHTML = freeS
+        recentCount.innerHTML = recentE
+        occupiedCount.innerHTML = (20 - freeS)
     })
     renderSlots()
 }
@@ -90,6 +105,8 @@ function deleteVehicle(plate) {
     saveVehicles()
     renderVehicles()
     slotModal.style.display = "none"
+    freeS += 1
+    freeCount.innerHTML = freeS
 }
 
 function editVehicle(plate) {

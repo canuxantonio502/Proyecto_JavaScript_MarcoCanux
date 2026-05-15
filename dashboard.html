@@ -22,15 +22,15 @@
       <h2 style="font-family: 'Roboto Condensed', sans-serif;">ParkingControl</h2>
     </div>
     <nav class="menu">
-      <a href="#">
+      <a href="#dashboard">
         <i class="fa-solid fa-chart-line"></i>
         <span>Dashboard</span>
       </a>
-      <a href="#">
+      <a href="#vehiculos">
         <i class="fa-solid fa-car"></i>
         <span>Vehículos</span>
       </a>
-      <a href="#">
+      <a href="#espacios">
         <i class="fa-solid fa-square-parking"></i>
         <span>Espacios</span>
       </a>
@@ -47,7 +47,7 @@
 
   <main class="visible">
     <div class="topbar">
-      <h1 class="title"">Dashboard</h1>
+      <h1 id="dashboard" class="title"">Dashboard</h1>
       <button class=" admin">
         Administrador
         </button>
@@ -55,24 +55,24 @@
 
     <section class="cards">
       <div class="card">
-        <h2>124</h2>
+        <h2 id="carCount">124</h2>
         <p>Vehículos registrados hoy</p>
       </div>
       <div class="card">
-        <h2>38</h2>
+        <h2 id="freeCount">38</h2>
         <p>Espacios disponibles</p>
       </div>
       <div class="card">
-        <h2>12</h2>
+        <h2 id="recentCount">12</h2>
         <p>Ingresos recientes</p>
       </div>
       <div class="card">
-        <h2>6</h2>
+        <h2 id="occupiedCount">6</h2>
         <p>Espacios ocupados</p>
       </div>
     </section>
 
-    <section class="table-section">
+    <section id="vehiculos" class="table-section">
       <div class="table-header">
         <h2>Vehículos parqueados</h2>
         <button class="add-btn">
@@ -95,8 +95,8 @@
         </tbody>
       </table>
     </section>
-    
-    <section class="parking-section">
+
+    <section id="espacios" class="parking-section">
       <h2>Estado del parqueo</h2>
       <div class="parking-category">
         <h3>Carros</h3>
@@ -111,7 +111,6 @@
     <footer>
       © 2026 CampusParkingControl | Sistema de gestión de parqueo
     </footer>
-  </body>
   </main>
 
   <!-- ================= MODAL REGISTRO ================= -->
@@ -154,4 +153,6 @@
   </div>
 
   <script src="./js/dashboard.js"></script>
+</body>
+
 </html>

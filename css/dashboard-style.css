@@ -5,6 +5,10 @@
     font-family: "Roboto", sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 :root {
     --back-color: #020710;
     --text-color: #99BABB;
@@ -20,6 +24,7 @@ footer {
     padding: 25px;
     text-align: center;
     color: var(--secundary-color);
+    margin-left: -250px;
 }
 
 .visible {

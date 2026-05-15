@@ -34,7 +34,7 @@
         <i class="fa-solid fa-square-parking"></i>
         <span>Espacios</span>
       </a>
-      <a href="#">
+      <a href="#historial">
         <i class="fa-solid fa-chart-column"></i>
         <span>Reportes</span>
       </a>
@@ -50,24 +50,25 @@
       <h1 id="dashboard" class="title">Dashboard</h1>
       <button class=" admin">
         Administrador
-        </button>
+      </button>
     </div>
 
     <section class="cards">
       <div class="card">
-        <h2 id="carCount">124</h2>
+        <h2 id="carCount">0</h2>
         <p>Vehículos registrados hoy</p>
       </div>
       <div class="card">
-        <h2 id="freeCount">38</h2>
-        <p>Espacios disponibles</p>
+        <h2 id="freeCount">0</h2>
+        <p>Carros activos</p>
       </div>
       <div class="card">
-        <h2 id="recentCount">12</h2>
-        <p>Ingresos recientes</p>
+        <h2 id="recentCount">0</h2>
+        <p>Motos activos</p>
       </div>
       <div class="card">
-        <h2 id="occupiedCount">6</h2>
+        <h2 id="occupiedCount">0</h2>
+        <p>/30</p>
         <p>Espacios ocupados</p>
       </div>
     </section>
@@ -108,6 +109,29 @@
         <div class="spaces" id="motoSlots"></div>
       </div>
     </section>
+
+    <!-- Hhistorial -->
+    <section id="historial" class="table-section">
+      <div class="table-header">
+        <h2>Historial de parqueo</h2>
+        <input type="text" id="searchHistory" placeholder="Buscar placa...">
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Placa</th>
+            <th>Tipo</th>
+            <th>Entrada</th>
+            <th>Salida</th>
+            <th>Tiempo</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="historyBody"></tbody>
+      </table>
+
+    </section>
+
     <footer>
       © 2026 CampusParkingControl | Sistema de gestión de parqueo
     </footer>
@@ -153,6 +177,8 @@
   </div>
 
   <script src="./js/dashboard.js"></script>
+  <script src="./js/history.js"></script>
+  <script src="./js/stats.js"></script>
 </body>
 
 </html>

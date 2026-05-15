@@ -10,14 +10,10 @@ const slotModal = document.getElementById("slotModal")
 const closeSlotModal = document.getElementById("closeSlotModal")
 const slotInfo = document.getElementById("slotInfo")
 const cards = document.getElementsByClassName("cards")
-const carCount = document.getElementById("carCount")
-const freeCount = document.getElementById("freeCount")
-const recentCount = document.getElementById("recentCount")
-const occupiedCount = document.getElementById("occupiedCount")
 
 // Almacenamos en LocalStorage
 let vehicles = JSON.parse(localStorage.getItem("vehicles")) || []
-let history = JSON.parse(
+let parkingHistoryData = JSON.parse(
     localStorage.getItem("history")
 ) || []
 let editPlate = null
@@ -84,15 +80,9 @@ function renderVehicles() {
                 </td>
             </tr>
         `
-        total += 1
-        freeS -= 1
-        recentE += 1
-        carCount.innerHTML = total
-        freeCount.innerHTML = freeS
-        recentCount.innerHTML = recentE
-        occupiedCount.innerHTML = (30 - freeS)
     })
     renderSlots()
+    updateStats()
 }
 
 // Guardamos em LocalStorage
@@ -134,7 +124,7 @@ function vehicleExit(plate) {
     )
     if (!vehicle) return
 
-    let history = JSON.parse(
+    let historyList = JSON.parse(
         localStorage.getItem("history")
     ) || []
 
@@ -167,6 +157,13 @@ function vehicleExit(plate) {
     alert(`Vehículo: ${vehicle.placa}
 Tiempo total: ${vehicle.tiempoTotal}
 Total: ${vehicle.totalPagado}`)
+
+    historyList.push(vehicle)
+    localStorage.setItem(
+        "history",
+        JSON.stringify(historyList)
+    )
+    renderHistory()
     vehicles = vehicles.filter(
         v => v.placa !== plate
     )

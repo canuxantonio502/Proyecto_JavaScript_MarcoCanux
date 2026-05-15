@@ -437,3 +437,10 @@ tr:nth-child(even) {
 .delete-btn {
     background: #dc2626;
 }
+
+#searchHistory{
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}

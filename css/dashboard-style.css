@@ -402,6 +402,7 @@ tr:nth-child(even) {
     padding: 30px;
     border-radius: 20px;
     animation: modalShow 0.3s ease;
+    position: relative;
 }
 
 .slot-box h2 {
@@ -461,6 +462,7 @@ tr:nth-child(even) {
     padding: 30px;
     border-radius: 20px;
     animation: modalShow 0.3s ease;
+    position: relative;
 }
 
 .profile-box h2{

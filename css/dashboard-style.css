@@ -23,12 +23,18 @@ html {
 footer {
     padding: 25px;
     text-align: center;
-    color: var(--secundary-color);
     margin-left: -250px;
+    color: var(--secundary-color);
+    /*font-weight: bold;
+    background: linear-gradient(90deg, var(--text-color), var(--icons-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;*/
 }
 
 .visible {
     background: linear-gradient(-90deg, var(--text-color), var(--secundary-color));
+    min-height: 100vh;
 }
 
 .title:hover {

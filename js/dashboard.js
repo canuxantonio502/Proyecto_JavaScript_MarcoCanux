@@ -10,7 +10,6 @@ const slotModal = document.getElementById("slotModal")
 const closeSlotModal = document.getElementById("closeSlotModal")
 const slotInfo = document.getElementById("slotInfo")
 const cards = document.getElementsByClassName("cards")
-
 const carCount = document.getElementById("carCount")
 const freeCount = document.getElementById("freeCount")
 const recentCount = document.getElementById("recentCount")
@@ -39,11 +38,13 @@ closeSlotModal.addEventListener("click", () => {
 function generateSlot(type) {
     const carros = [
         "C-01", "C-02", "C-03", "C-04", "C-05",
-        "C-06", "C-07", "C-08", "C-09", "C-10"
+        "C-06", "C-07", "C-08", "C-09", "C-10",
+        "C-11", "C-12", "C-13", "C-14", "C-15"
     ]
     const motos = [
         "M-01", "M-02", "M-03", "M-04", "M-05",
-        "M-06", "M-07", "M-08", "M-09", "M-10"
+        "M-06", "M-07", "M-08", "M-09", "M-10",
+        "M-11", "M-12", "M-13", "M-14", "M-15"
     ]
     const usedSlots = vehicles.map(vehicle => vehicle.slot)
     const availableSlots = (type === "Carro" ? carros : motos)
@@ -65,7 +66,7 @@ function validatePlate(plate, type) {
 // Renderizamos el vehículo en la tabla
 function renderVehicles() {
     let total = 0
-    let freeS = 20
+    let freeS = 30
     let recentE = 0
     tableBody.innerHTML = ""
     vehicles.forEach(vehicle => {
@@ -89,7 +90,7 @@ function renderVehicles() {
         carCount.innerHTML = total
         freeCount.innerHTML = freeS
         recentCount.innerHTML = recentE
-        occupiedCount.innerHTML = (20 - freeS)
+        occupiedCount.innerHTML = (30 - freeS)
     })
     renderSlots()
 }
@@ -262,11 +263,13 @@ function renderSlots() {
     motoSlotsContainer.innerHTML = ""
     const carSlots = [
         "C-01", "C-02", "C-03", "C-04", "C-05",
-        "C-06", "C-07", "C-08", "C-09", "C-10"
+        "C-06", "C-07", "C-08", "C-09", "C-10",
+        "C-11", "C-12", "C-13", "C-14", "C-15"
     ]
     const motoSlots = [
         "M-01", "M-02", "M-03", "M-04", "M-05",
-        "M-06", "M-07", "M-08", "M-09", "M-10"
+        "M-06", "M-07", "M-08", "M-09", "M-10",
+        "M-11", "M-12", "M-13", "M-14", "M-15"
     ]
 
     carSlots.forEach(slot => {

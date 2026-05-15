@@ -364,6 +364,8 @@ tr:nth-child(even) {
 
 #deleteBt:hover {
     background: var(--error-color);
+    transition: 0.3s;
+    box-shadow: 0px 5px 5px rgba(227, 84, 84, 1); 
 }
 
 #vehicleMessage {

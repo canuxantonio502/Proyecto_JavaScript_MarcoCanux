@@ -1,5 +1,17 @@
-const adminEmail = "admin@campusparking.com"
-const adminPassword = "Admin123"
+let admin = JSON.parse(
+    localStorage.getItem("admin")
+)
+
+if(!admin){
+    admin = {
+        email: "admin@campusparking.com",
+        password: "Admin123"
+    }
+    localStorage.setItem(
+        "admin",
+        JSON.stringify(admin)
+    )
+}
 
 const loginBtn = document.querySelector("#login-btn")
 const loginModal = document.getElementById("loginModal")
@@ -20,7 +32,7 @@ loginForm.addEventListener("submit", (e) => {
     const email = document.getElementById("email").value
     const password = document.getElementById("password").value
 
-    if (email === adminEmail && password === adminPassword) {
+    if (email === admin.email && password === admin.password) {
         message.style.color = "green"
         message.textContent = "Acceso concedido"
         setTimeout(() => {

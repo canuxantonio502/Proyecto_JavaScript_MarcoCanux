@@ -48,7 +48,7 @@
   <main class="visible">
     <div class="topbar">
       <h1 id="dashboard" class="title">Dashboard</h1>
-      <button class=" admin">
+      <button id="admin">
         Administrador
       </button>
     </div>
@@ -56,7 +56,7 @@
     <section class="cards">
       <div class="card">
         <h2 id="carCount">0</h2>
-        <p>Vehículos registrados hoy</p>
+        <p>Vehículos activos</p>
       </div>
       <div class="card">
         <h2 id="freeCount">0</h2>
@@ -176,9 +176,33 @@
     </div>
   </div>
 
+  <div class="profile-modal" id="profileModal">
+    <div class="profile-box">
+      <span class="close-modal" id="closeProfileModal">
+        &times;
+      </span>
+      <h2>Perfil administrador</h2>
+      <form id="profileForm">
+        <div class="form-group">
+          <label>Nuevo email</label>
+          <input type="email" id="newEmail" required>
+        </div>
+        <div class="form-group">
+          <label>Nueva contraseña</label>
+          <input type="password" id="newPassword" required>
+        </div>
+        <button type="submit" class="save-btn">
+          Guardar cambios
+        </button>
+        <p id="profileMessage"></p>
+      </form>
+    </div>
+  </div>
+
   <script src="./js/dashboard.js"></script>
   <script src="./js/history.js"></script>
   <script src="./js/stats.js"></script>
+  <script src="./js/profile.js"></script>
 </body>
 
 </html>

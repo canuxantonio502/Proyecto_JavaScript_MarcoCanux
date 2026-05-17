@@ -196,7 +196,8 @@ body {
 }
 
 .parking-card {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     background: white;
     border-radius: 25px;
     padding: 30px;
@@ -320,7 +321,8 @@ footer {
 }
 
 .login-box {
-    width: 350px;
+    width: 90%;
+    max-width: 350px;
     background: white;
     padding: 35px;
     border-radius: 20px;
@@ -396,4 +398,74 @@ footer {
     margin-top: 15px;
     text-align: center;
     font-weight: bold;
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 80px 5% 40px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    #campusParking {
+        font-size: 2.5rem;
+        justify-content: center;
+    }
+
+    #text {
+        font-size: 1.2rem;
+    }
+    
+    #logoImg {
+        height: 70px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .features, .stats {
+        padding: 50px 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    #campusParking {
+        font-size: 2rem;
+    }
+
+    #text {
+        font-size: 1rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-buttons a {
+        text-align: center;
+    }
+
+    .spaces {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

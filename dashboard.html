@@ -45,12 +45,20 @@
     </nav>
   </aside>
 
-  <main class="visible">
+  <main class="visible" id="dashboard">
     <div class="topbar">
-      <h1 id="dashboard" class="title">Dashboard</h1>
-      <button id="admin">
-        Administrador
-      </button>
+      <h1 class="title">Dashboard</h1>
+      <div class="topbar-right">
+        <div class="earnings-card">
+          <span>Ganancias Totales</span>
+          <h3 id="totalEarnings">
+            Q0
+          </h3>
+        </div>
+        <div class="admin">
+          Administrador
+        </div>
+      </div>
     </div>
 
     <section class="cards">
@@ -203,6 +211,7 @@
   <script src="./js/history.js"></script>
   <script src="./js/stats.js"></script>
   <script src="./js/profile.js"></script>
+  <script src="./js/earnings.js"></script>
 </body>
 
 </html>

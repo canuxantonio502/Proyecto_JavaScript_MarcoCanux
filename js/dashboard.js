@@ -169,6 +169,7 @@ Total: ${vehicle.totalPagado}`)
     )
     saveVehicles()
     renderVehicles()
+    updateEarnings()
     slotModal.style.display = "none"
 }
 

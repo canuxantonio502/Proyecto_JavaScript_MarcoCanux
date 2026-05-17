@@ -1,4 +1,4 @@
-# ParkingControl 🚗🏍️
+# CampusParking Control 🚗🏍️
 
 **ParkingControl** es un sistema web de gestión y control de parqueo desarrollado con tecnologías frontend nativas. Está enfocado en la administración eficiente de vehículos, el control dinámico de espacios y el cálculo automático de cobros en tiempo real.
 

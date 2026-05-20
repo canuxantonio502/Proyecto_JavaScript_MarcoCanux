@@ -12,11 +12,16 @@ function updateStats(){
         vehicle => vehicle.tipo === "Moto"
     ).length
 
+    const activeTrucks = vehicles.filter(
+        vehicle => vehicle.tipo === "Camión"
+    ).length
+
     const occupiedSlots = vehicles.length
 
 // Actualizamos
     statCards[0].textContent = activeVehicles
     statCards[1].textContent = activeCars
     statCards[2].textContent = activeMotos
-    statCards[3].textContent = occupiedSlots
+    statCards[3].textContent = activeTrucks
+    statCards[4].textContent = occupiedSlots
 }

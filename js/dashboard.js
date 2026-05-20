@@ -49,7 +49,7 @@ function generateSlot(type) {
         "C-11", "C-12", "C-13", "C-14", "C-15"
     ]
     const usedSlots = vehicles.map(vehicle => vehicle.slot)
-    const availableSlots = (type === "Carro" ? carros : motos)
+    const availableSlots = (type === "Carro" ? carros : type === "Moto" ? motos : camiones)
         .filter(slot => !usedSlots.includes(slot))
     return availableSlots[0] || null
 }
@@ -101,8 +101,6 @@ function deleteVehicle(plate) {
     saveVehicles()
     renderVehicles()
     slotModal.style.display = "none"
-    freeS += 1
-    freeCount.innerHTML = freeS
 }
 
 function editVehicle(plate) {
@@ -131,23 +129,33 @@ function vehicleExit(plate) {
 
     let historyList = JSON.parse(
         localStorage.getItem("history")
-    ) || []
+    ) || [] 
 
     const exitDate = new Date()
-    const [hours, minutes] =
-        vehicle.horaEntrada.split(":")
-    const entryDate = new Date()
-    entryDate.setHours(hours)
-    entryDate.setMinutes(minutes)
+    let entryDate = new Date()
+
+    if (vehicle.timestamp) {
+        entryDate = new Date(vehicle.timestamp)
+    } else {
+        const [hours, minutes] =
+            vehicle.horaEntrada.split(":")
+        entryDate.setHours(parseInt(hours, 10) || 0)
+        entryDate.setMinutes(parseInt(minutes, 10) || 0)
+        if (exitDate < entryDate) {
+            entryDate.setDate(entryDate.getDate() - 1)
+        }
+    }
     const diffMs = exitDate - entryDate
     let diffHours = Math.ceil(diffMs / (1000 * 60 * 60))
-    if (isNaN(diffHours) || diffHours <= 0 ) diffHours = 1
+    if (isNaN(diffHours) || diffHours <= 0) diffHours = 1 
 
     let rate = 0
     if (vehicle.tipo === "Carro") {
         rate = 10
-    } else {
+    } else if (vehicle.tipo === "Moto") {
         rate = 5
+    } else {
+        rate = 20
     }
 
     const total = diffHours * rate
@@ -223,6 +231,7 @@ vehicleForm.addEventListener("submit", (e) => {
         tipo,
         fecha,
         horaEntrada,
+        timestmap: now.getTime(),
         slot,
         estado: "Dentro"
     }

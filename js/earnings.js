@@ -9,7 +9,9 @@ function updateEarnings(){
         const monto = parseInt(
             vehicle.totalPagado.replace("Q","")
         )
-        total += monto
+        if(!isNaN(monto)){
+            total += monto
+        }
     })
     totalEarnings.textContent = `Q${total}`
 }

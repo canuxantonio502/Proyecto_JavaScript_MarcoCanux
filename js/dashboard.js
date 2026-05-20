@@ -6,6 +6,7 @@ const vehicleMessage = document.getElementById("vehicleMessage")
 const tableBody = document.querySelector("tbody")
 const carSlotsContainer = document.getElementById("carSlots")
 const motoSlotsContainer = document.getElementById("motoSlots")
+const truckSlotsContainer = document.getElementById("truckSlots")
 const slotModal = document.getElementById("slotModal")
 const closeSlotModal = document.getElementById("closeSlotModal")
 const slotInfo = document.getElementById("slotInfo")
@@ -33,14 +34,19 @@ closeSlotModal.addEventListener("click", () => {
 // Generamos los Slots
 function generateSlot(type) {
     const carros = [
-        "C-01", "C-02", "C-03", "C-04", "C-05",
-        "C-06", "C-07", "C-08", "C-09", "C-10",
-        "C-11", "C-12", "C-13", "C-14", "C-15"
+        "P-01", "P-02", "P-03", "P-04", "P-05",
+        "P-06", "P-07", "P-08", "P-09", "P-10",
+        "P-11", "P-12", "P-13", "P-14", "P-15"
     ]
     const motos = [
         "M-01", "M-02", "M-03", "M-04", "M-05",
         "M-06", "M-07", "M-08", "M-09", "M-10",
         "M-11", "M-12", "M-13", "M-14", "M-15"
+    ]
+    const camiones = [
+        "C-01", "C-02", "C-03", "C-04", "C-05",
+        "C-06", "C-07", "C-08", "C-09", "C-10",
+        "C-11", "C-12", "C-13", "C-14", "C-15"
     ]
     const usedSlots = vehicles.map(vehicle => vehicle.slot)
     const availableSlots = (type === "Carro" ? carros : motos)
@@ -55,15 +61,14 @@ function validatePlate(plate, type) {
         regex = /^P[0-9]{3}[A-Z]{3}$/
     } else if (type === "Moto") {
         regex = /^M[0-9]{3}[A-Z]{3}$/
+    } else if (type === "Camión") {
+        regex = /^C[0-9]{3}[A-Z]{3}$/
     }
     return regex.test(plate)
 }
 
 // Renderizamos el vehículo en la tabla
 function renderVehicles() {
-    let total = 0
-    let freeS = 30
-    let recentE = 0
     tableBody.innerHTML = ""
     vehicles.forEach(vehicle => {
         tableBody.innerHTML += `
@@ -135,7 +140,8 @@ function vehicleExit(plate) {
     entryDate.setHours(hours)
     entryDate.setMinutes(minutes)
     const diffMs = exitDate - entryDate
-    const diffHours = Math.ceil(diffMs / (1000 * 60 * 60))
+    let diffHours = Math.ceil(diffMs / (1000 * 60 * 60))
+    if (isNaN(diffHours) || diffHours <= 0 ) diffHours = 1
 
     let rate = 0
     if (vehicle.tipo === "Carro") {
@@ -259,15 +265,22 @@ renderVehicles()
 function renderSlots() {
     carSlotsContainer.innerHTML = ""
     motoSlotsContainer.innerHTML = ""
+    truckSlotsContainer.innerHTML = ""
+
     const carSlots = [
-        "C-01", "C-02", "C-03", "C-04", "C-05",
-        "C-06", "C-07", "C-08", "C-09", "C-10",
-        "C-11", "C-12", "C-13", "C-14", "C-15"
+        "P-01", "P-02", "P-03", "P-04", "P-05",
+        "P-06", "P-07", "P-08", "P-09", "P-10",
+        "P-11", "P-12", "P-13", "P-14", "P-15"
     ]
     const motoSlots = [
         "M-01", "M-02", "M-03", "M-04", "M-05",
         "M-06", "M-07", "M-08", "M-09", "M-10",
         "M-11", "M-12", "M-13", "M-14", "M-15"
+    ]
+    const truckSlots = [
+        "C-01", "C-02", "C-03", "C-04", "C-05",
+        "C-06", "C-07", "C-08", "C-09", "C-10",
+        "C-11", "C-12", "C-13", "C-14", "C-15"
     ]
 
     carSlots.forEach(slot => {
@@ -304,6 +317,24 @@ function renderSlots() {
             }
         })
         motoSlotsContainer.appendChild(div)
+    })
+
+    truckSlots.forEach(slot => {
+        const vehicle = vehicles.find(v => v.slot === slot)
+        const div = document.createElement("div")
+        div.classList.add("space")
+        if (vehicle) {
+            div.classList.add("occupied")
+        } else {
+            div.classList.add("free")
+        }
+        div.textContent = slot
+        div.addEventListener("click", () => {
+            if (vehicle) {
+                showVehicleInfo(vehicle)
+            }
+        })
+        truckSlotsContainer.appendChild(div)
     })
 }
 

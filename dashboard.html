@@ -38,6 +38,10 @@
         <i class="fa-solid fa-chart-column"></i>
         <span>Historial</span>
       </a>
+      <a href="#reportes">
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Reportes</span>
+      </a>
       <a href="index.html">
         <i class="fa-solid fa-right-from-bracket"></i>
         <span>Salir</span>
@@ -147,7 +151,36 @@
         </thead>
         <tbody id="historyBody"></tbody>
       </table>
+    </section>
 
+    <!-- Reportes -->
+    <section id="reportes" class="table-section">
+      <div class="table-header">
+        <h2>Reportes</h2>
+        <button class="select-btn" id="selectDate">
+          Seleccionar rango de fechas</button>
+      </div>
+      <div class="cards">
+        <div class="card">
+        </div>
+        <div class="card">
+        </div>
+        <div class="card">
+        </div>
+      </div>
+      <table style="margin-top: 20px;">
+        <thead>
+          <tr>
+            <th>Placa</th>
+            <th>Tipo</th>
+            <th>Entrada</th>
+            <th>Salida</th>
+            <th>Tiempo</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="reportTableBody"></tbody>
+      </table>
     </section>
 
     <footer>
@@ -195,6 +228,7 @@
     </div>
   </div>
 
+  <!-- ================= Modificar perfil (Modal) ================= -->
   <div class="profile-modal" id="profileModal">
     <div class="profile-box">
       <span class="close-modal" id="closeProfileModal">
@@ -218,10 +252,34 @@
     </div>
   </div>
 
+  <!-- ================= MODAL - SOLICITUD RANGO DE FECHAS ================= -->
+  <div class="date-modal" id="dateModal">
+    <div class="date-box">
+      <span class="close-modal" id="closeDateModal">
+        &times;
+      </span>
+      <h2>Rango de fechas</h2>
+      <form id="dateForm">
+        <div class="form-group">
+          <label>Fecha inicio</label>
+          <input type="date" id="startDate" required>
+        </div>
+        <div class="form-group">
+          <label>Fecha fin</label>
+          <input type="date" id="endDate" required>
+        </div>
+        <button type="submit" class="save-btn" id="saveBtn">
+          Generar reporte
+        </button>
+      </form>
+    </div>
+  </div>
+
   <script src="./js/history.js"></script>
   <script src="./js/stats.js"></script>
   <script src="./js/profile.js"></script>
   <script src="./js/earnings.js"></script>
+  <script src="./js/reports.js"></script>
   <script src="./js/dashboard.js"></script>
 </body>
 

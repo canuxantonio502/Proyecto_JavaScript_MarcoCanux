@@ -41,6 +41,11 @@
 *   Motor de búsqueda optimizado por número de placa.
 *   Desglose detallado por registro: Hora de entrada, hora de salida, tiempo total transcurrido y total pagado.
 
+### Generaciòn de reportes
+*   Selecciòn de un rango de fechas.
+*   Bùsqueda del historial registrado entre el rango de fechas.
+*   Despliegue de tabla con la informaciòn de los vehìculos y cards con informaciòn general.
+
 ---
 
 ## 🛠️ Tecnologías Utilizadas
@@ -71,6 +76,7 @@ project/
 │   ├── history.js
 │   ├── stats.js
 │   ├── profile.js
+│   ├── reports.js
 │   └── earnings.js
 │
 └── assets/
